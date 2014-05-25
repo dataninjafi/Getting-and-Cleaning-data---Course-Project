@@ -1,12 +1,34 @@
 Codebook
 =======
 
-1. Description what the script does
+* Original dataset
+* Description of datafiles and variables downloaded and read in by the run_analysis.R script
+* Description of the script
 2. a
 3. b
 code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md
 
-## D
+* Original dataset
+
+Original dataset with documentation can be found here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+## Description of datafiles, variables and values downloaded and read by the run_analysis.R script
+
+All relations of used datafiles and variables in them have been described in the original dataset.
+
+## Descption of the scipt 
+
+1. Installs and loads reshape package 
+2. Downloads the dataset
+3. Unzips downloaded dataset.zip -file into UCI HAR Dataset -folder
+4. Reads data
+* Reads labels and row names from activity_labels.txt and features.txt -files
+* Reads data test set: values, subject number and activity code
+* Reads data train set: values, subject number and activity code
+5. Combines train and test sets into 3 data table: measures, subject and activity
+6. Changes measures and subject to a dataframe
+7. Changes activity to factor
+8. 
 
 ## Output data
 
