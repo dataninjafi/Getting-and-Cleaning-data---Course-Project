@@ -37,6 +37,8 @@ All relations of used datafiles and variables in them have been described in the
 14. Renames column names
 15. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
+For details see the script: https://github.com/sneik-/Getting-and-Cleaning-data---Course-Project/blob/master/run_analysis.R
+
 ## Information about "independent tidy data set with the average of each variable for each activity and each subject"
 
 Letters x, y and z at the end of variable name mean that this variable is measured and calculate basis of one axis out three axes of that specific measured pattern. 
