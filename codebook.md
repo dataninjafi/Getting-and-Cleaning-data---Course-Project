@@ -39,7 +39,7 @@ All relations of used datafiles and variables in them have been described in the
 
 ## Information about "independent tidy data set with the average of each variable for each activity and each subject"
 
-If there is a x, y and z at the of variable name it means that it is a one subset of measured axis out three axises of that specific measured pattern. 
+Letters x, y and z at the end of variable name mean that this variable is measured and calculate basis of one axis out three axes of that specific measured pattern. 
 
 **INFORMATION FOR GRADING:** My variable naming policy is a well and carefully reasoned. Here are my arguments for using underscores: Hadley "R Guru" Wickham says it is a good naming policy: http://adv-r.had.co.nz/Style.html
 
