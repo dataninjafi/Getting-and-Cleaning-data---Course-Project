@@ -1,79 +1,79 @@
-## Packages needed
+## Installs and loads reshape package 
 
-install.package(reshape)
+install.packages("reshape")
+install.packages("reshape2")
 library(reshape)
+library(reshape2)
 
-## Downloads the dataset
+## Downloads the data set
 
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileUrl, destfile= "./Dataset.zip", method= "curl")
 
-## Unzip dataset.zip -file
+## Unzips downloaded dataset.zip -file into UCI HAR Dataset -folder
 
 unzip("./Dataset.zip")
 
-## Reading data
+## Reads data
 
-#### Reading labels and row names
+#### Reads labels and row names from activity_labels.txt and features.txt -files
 
 activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
 features <- read.table("./UCI HAR Dataset/features.txt")
 
-#### Reading test set
+#### Reads data test set
 
 subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
 measures_test <- read.table("./UCI HAR Dataset/test/X_test.txt")
 activity_test <- read.table("./UCI HAR Dataset/test/y_test.txt")
 
-#### Reading train set
+#### Reads train set
 
 subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 measures_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
 activity_train <- read.table("./UCI HAR Dataset/train/y_train.txt")
 
-## Rbinding test and train datas
+## Rbinds test and train datas
 
 measures <- rbind(measures_test, measures_train)
 subject <- rbind(subject_test, subject_train)
 activity <- rbind(activity_test, activity_train)
 
-## Changing matrixes to dataframes
+## Changes matrixes to data frames
 
 measures <- as.data.frame(measures)
 subject <- as.data.frame(subject)
 
-## Chancing dataframe to factor
+## Changes data frame to factor
 activity <- as.factor(activity$V1)
 
-## Changing to more readable labels, replacing number values with labels 
-## ren
+## Applies more readable labels to activity information  
 activity_labels$V2 <- gsub("_"," ",activity_labels$V2)
 levels(activity) <- factor(activity_labels$V2, levels=activity_labels$V2)
 
-### Adding column names to dataset
+### Adds column names to dataset
 
 colnames(measures) <- as.vector(features$V2)
 colnames(subject) <- "subjects" 
 
 
-### Cbinding data together
+### Cbinds data together
 
 data <- cbind(measures, subject, activity)
 
-## Selecting only variables where are mean and std values + subject + activity
-## 
+## Creates a data frame where are only variables with mean and std values
 
 means_and_std <- features[grep("-std\\(\\)|-mean\\(\\)", tolower(features$V2)),]
 
 
-## Labeling subjects and activity columns
+## Labels subjects and activity columns
 filter <- append(as.vector(means_and_std$V2), c("subjects", "activity"))
 
-## Droppping unnessesary columns
+## Drops unnessesary columns
 
 data <- data[,filter]
 
-## Renaming column names
+## Renames column names
 
 x <- names(data)
 x <- gsub("-mean\\(\\)","-mean", x)
@@ -82,8 +82,8 @@ x <- gsub("-","_", x)
 x <- tolower(x)
 names(data) <- x
 
-## Another dataframe
+## Creates a second, independent tidy data set with the average of each variable 
+## for each activity and each subject. 
 
 df <- melt(data,id=c("subjects","activity"), measure.vars=(1:66))
-
-final <- dcast(df, subjects + activity ~ variable, fun.aggregate=mean)
+tidy_dataset <- dcast(df, subjects + activity ~ variable, fun.aggregate=mean)
