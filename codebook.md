@@ -41,9 +41,7 @@ All relations of used datafiles and variables in them have been described in the
 
 If there is a x, y and z at the of variable name it means that it is a one subset of measured axis out three axises of that specific measured pattern. 
 
-**INFORMATION FOR GRADING:** My variable naming policy is a well and carefully reasoned. Here are my arguments for using underscores: 
-* On the course material it is said it is bad convention to use underscore naming. This is very contradicting to this projects instructions: " You should create one R script called **run_analysis.R**". This is the reason why I didn't apply this rule to my work. 
-* Because Hadley "R Guru" Wickham says it is a good naming policy: http://adv-r.had.co.nz/Style.html
+**INFORMATION FOR GRADING:** My variable naming policy is a well and carefully reasoned. Here are my arguments for using underscores: Hadley "R Guru" Wickham says it is a good naming policy: http://adv-r.had.co.nz/Style.html
 
 | variable name in the data | measured pattern | method for creating the value                  |
 |---------------------------|------------------|------------------------------------------------|
