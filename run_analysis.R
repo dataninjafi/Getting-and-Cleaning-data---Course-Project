@@ -69,6 +69,7 @@ means_and_std <- features[grep("-std\\(\\)|-mean\\(\\)", tolower(features$V2)),]
 ## Labels subjects and activity columns
 filter <- append(as.vector(means_and_std$V2), c("subjects", "activity"))
 
+
 ## Drops unnessesary columns
 
 data <- data[,filter]
