@@ -1,16 +1,16 @@
 Codebook
 =======
 
-* Original dataset
+* Original data set
 * Description of datafiles and variables downloaded and read in by the run_analysis.R script
 * Description of the script
-2. a
-3. b
-code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md
+* Information about "independent tidy data set with the average of each variable for each activity and each subject"
 
-* Original dataset
+## Original data set
 
 Original dataset with documentation can be found here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+A full description is available at the site where the data was obtained: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 ## Description of datafiles, variables and values downloaded and read by the run_analysis.R script
 
@@ -19,18 +19,27 @@ All relations of used datafiles and variables in them have been described in the
 ## Descption of the scipt 
 
 1. Installs and loads reshape package 
-2. Downloads the dataset
+2. Downloads the data set
 3. Unzips downloaded dataset.zip -file into UCI HAR Dataset -folder
 4. Reads data
 * Reads labels and row names from activity_labels.txt and features.txt -files
 * Reads data test set: values, subject number and activity code
 * Reads data train set: values, subject number and activity code
-5. Combines train and test sets into 3 data table: measures, subject and activity
-6. Changes measures and subject to a dataframe
-7. Changes activity to factor
-8. 
+5. Combines train and test sets into 3 data table: measures, subject information and activity information
+6. Changes measures and subject to a data frame
+7. Changes activity data to factor
+8. Applies more readable labels to activity information  
+9. Adds column names to data set
+10. Cbinds measurements, subject information and activity information
+11. Creates a dataframe where are only variables with mean and std values
+12. Labels subjects and activity columns correctly
+13. Drops unnessesary columns of the original data set
+14. Renames column names
+15. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-## Output data
+## Information about "independent tidy data set with the average of each variable for each activity and each subject"
+
+If there is a x, y and z at the of variable name it means that it is a one subset of measured axis out three axises of that specific measured pattern. 
 
 | variable name in the data | measured pattern | method for creating the value                  |
 |---------------------------|------------------|------------------------------------------------|
